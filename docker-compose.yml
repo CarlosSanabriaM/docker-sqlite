@@ -1,0 +1,12 @@
+services:
+  sqlite:
+    container_name: my-sqlite-container
+    # https://github.com/KEINOS/Dockerfile_of_SQLite3.git
+    image: keinos/sqlite3:3.47.0
+    command: sh scripts/initialize-database.sh
+    volumes:
+      # Mount the /database folder of the repository to the /database folder in the container
+      # This will allow the database data to persist even if the container is removed
+      # and will make scripts available to the container
+      - ./database:/database
+    working_dir: /database

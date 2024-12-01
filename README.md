@@ -1,9 +1,14 @@
-# Docker SQLite
+<h1 align="center">Docker SQLite</h1>
 
-> __⭐️ Local & automated environment for SQLite with a test database.__
+<a href="#"><img width="200" height="200" src="docs/docker-sqlite.svg" align="left" /></a>
 
-This project uses [Docker](https://www.docker.com/) to create a local environment with SQLite
-and a test database to run queries and learn about SQL.
+<br />
+
+__⭐️ Local & automated environment for SQLite with a test database.__
+
+This project uses [Docker](https://www.docker.com/) to create a local environment with [SQLite](https://www.sqlite.org/) and a test database to run queries and learn about SQL.
+
+<br /><br /><br /><br />
 
 ## Architecture
 
@@ -13,12 +18,31 @@ The following diagram shows the architecture:
 
 ```mermaid
 graph LR
-    subgraph Docker Containers
-        sqliteDB[SQLite Database]
-        sqliteBrowser[SQLite Browser]
+    subgraph Host machine
+        sqliteDB[SQLite Database container]:::dockerContainer
+        sqliteDatabaseFile@{ shape: lin-cyl, label: "database.db file" }
+        sqliteBrowser[SQLite Browser container]:::dockerContainer
     end
-    sqliteDB <-->|Port 5432| sqliteBrowser
+    
+    sqliteDB <--> sqliteDatabaseFile <--> sqliteBrowser
+
+    classDef dockerContainer fill:#1D63ED,color:#fff
 ```
+
+The `SQLite Database container` is used to run the SQLite database and the `SQLite Browser container`
+is used to run a GUI to interact with the database.
+
+The [./database/data/database.db](./database/data/database.db) file is used to store the database data in binary format.
+
+The [./database](./database) folder of the repository is mounted to the `/database` folder in the `SQLite Database container`.
+This makes initialization scripts available to the container and allows the database data to persist even if the container is removed.
+
+The [./database/data](./database/data) folder of the repository is mounted to the `/config` folder in the `SQLite Browser container`.
+This makes the database data file available to the `SQLite Browser container` so that it can be opened in the GUI.
+`/config` is the user home directory in the container, so it's the folder that is opened by default in the GUI, making it easy to open the database.
+
+With this approach, __the database data is stored in the host machine and can be accessed by both containers__.
+There is no need to establish a network connection between the containers.
 
 ## Prerequisites
 
@@ -50,16 +74,26 @@ docker compose up
 
 </details>
 
-### (Optional) Remove and start containers to clean data
+### 2. Open the SQLite Browser and connect to the database
 
-This is useful if you want to clean the data inside the containers.
+Open a web browser and go to [http://localhost:3000](http://localhost:3000).
 
-```bash
-docker compose rm --stop --force
-docker compose up
-```
+To open the database, click on the `Open Database` button, select the `database.db` file and click `Open`.
+
+__🚀 Now you can inspect the database and run queries.__
+
+### 3. Stop the containers
+
+After executing the command `docker compose up`, the containers will be running and the terminal will be blocked.
+
+To stop the containers, just press `Ctrl + C` in the terminal.
+
+If you want to start them again, just go back to step 1.
 
 ### (Optional) Connect to one of the Docker containers
+
+If you want to connect to one of the Docker containers, you have to open a new terminal window,
+because the current terminal is blocked by the containers.
 
 Obtain the name of the container you want to connect to:
 ```bash
@@ -72,6 +106,8 @@ Execute the sh command in that container to connect to it:
 ```bash
 docker exec -it <container-name> sh
 ```
+
+To exit a container just press `Ctrl + D`.
 
 ## References
 

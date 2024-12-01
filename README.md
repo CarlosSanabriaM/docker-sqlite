@@ -115,8 +115,46 @@ Open a terminal in the project root folder.
 
 ### 1. Execute the docker containers
 
-```bash
+There are two ways to start the database:
+- __Recreating and initializing the database with the initial test data__
+- __Starting the database with the existing data__ (the data from the previous execution)
+
+To start the database with the __1st option__, simply execute the following command:
+
+```shell
 docker compose up
+```
+
+To start the database with the __2nd option__, continue reading.
+
+The execution mode is controlled by the `RECREATE_DATABASE_WITH_INITIAL_TEST_DATA` environment variable
+in the [docker-compose.yml](docker-compose.yml) file. This variable is set to `true` by default, which means
+that the database will be recreated and initialized with the initial test data if the user does not change it
+(as shown in the command above).
+
+The value of that environment variable can be changed in the CLI by setting a system environment variable before
+running the containers. That system environment variable is used to populate the container environment variable,
+which is then used in the [initialize-database.sh](database/scripts/initialize-database.sh) script to determine if
+the database should be recreated or not.
+
+This can be done in a single command as follows:
+
+```shell
+# MacOS/Linux
+RECREATE_DATABASE_WITH_INITIAL_TEST_DATA=false docker-compose up
+
+# Windows
+set RECREATE_DATABASE_WITH_INITIAL_TEST_DATA=false && docker-compose up
+```
+
+We can also set that environment variable to `true` in order to start the database with the __1st option__:
+
+```shell
+# MacOS/Linux
+RECREATE_DATABASE_WITH_INITIAL_TEST_DATA=true docker-compose up
+
+# Windows
+set RECREATE_DATABASE_WITH_INITIAL_TEST_DATA=true && docker-compose up
 ```
 
 <details>

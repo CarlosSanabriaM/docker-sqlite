@@ -3,7 +3,7 @@
 # Exit immediately if a command exits with a non-zero status
 set -e
 
-# Only run the SQL scripts if the environment variable is set to true
+# Only run the SQL scripts that recreate and initialize the database if the environment variable is set to true
 if [ "$RECREATE_DATABASE_WITH_INITIAL_TEST_DATA" = "true" ]; then
     echo "💭 Recreating and initializing the database..."
 

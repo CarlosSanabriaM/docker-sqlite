@@ -5,6 +5,8 @@ services:
     container_name: my-sqlite-container
     image: keinos/sqlite3:3.47.0
     command: sh scripts/initialize-database.sh
+    environment:
+      - RECREATE_DATABASE_WITH_INITIAL_TEST_DATA=${RECREATE_DATABASE_WITH_INITIAL_TEST_DATA:-true}
     volumes:
       # Mount the /database folder of the repository to the /database folder in the container
       # This makes initialization scripts available to the container and allows the database data

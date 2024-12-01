@@ -8,7 +8,7 @@ __⭐️ Local & automated environment for SQLite with a test database.__
 
 This project uses [Docker](https://www.docker.com/) to create a local environment with [SQLite](https://www.sqlite.org/) and a test database to run queries and learn about SQL.
 
-<br /><br /><br /><br />
+<br /><br /><br />
 
 ## Architecture
 

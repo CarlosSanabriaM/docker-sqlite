@@ -16,13 +16,52 @@ This project uses [Docker](https://www.docker.com/) to create a local environmen
 
 ## Entity relationship model
 
-The following diagram shows the entity relationship model of the database:
+The following diagrams show the entity relationship model of the database.
+
+### Simplified version
 
 ```mermaid
----
-title: Pedidos database
----
 erDiagram
+    cliente ||--o{ pedido : realiza
+    empleado ||--o{ pedido : procesa
+    pedido ||--|{ detalle_pedido : contiene
+    producto ||--o{ detalle_pedido : contiene
+```
+
+### Detailed version (with attributes)
+
+```mermaid
+erDiagram
+    cliente {
+        INTEGER id_cliente PK
+        VARCHAR nombre
+        VARCHAR calle
+        VARCHAR ciudad
+    }
+    empleado {
+        INTEGER id_empleado PK
+        VARCHAR nombre
+        VARCHAR calle
+        VARCHAR ciudad
+    }
+    producto {
+        INTEGER id_producto PK
+        VARCHAR nombre
+        INTEGER existencias
+        INTEGER precio
+    }
+    pedido {
+        INTEGER id_pedido PK
+        INTEGER id_cliente FK
+        INTEGER id_empleado FK
+        DATE fecha_pedido
+    }
+    detalle_pedido {
+        INTEGER id_pedido PK, FK
+        INTEGER id_producto PK, FK
+        INTEGER cantidad
+    }
+    
     cliente ||--o{ pedido : realiza
     empleado ||--o{ pedido : procesa
     pedido ||--|{ detalle_pedido : contiene

@@ -10,6 +10,10 @@ This project uses [Docker](https://www.docker.com/) to create a local environmen
 
 <br /><br /><br />
 
+## Demo
+
+![demo](docs/demo.png)
+
 ## Architecture
 
 The [docker-compose.yml](docker-compose.yml) file specifies how containers should be executed.

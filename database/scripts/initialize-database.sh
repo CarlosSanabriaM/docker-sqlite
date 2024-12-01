@@ -7,12 +7,16 @@ set -e
 if [ "$RECREATE_DATABASE_WITH_INITIAL_TEST_DATA" = "true" ]; then
     echo "💭 Recreating and initializing the database..."
 
-    # Define the database file
-    DATABASE_FILE="/database/data/database.db"
+    DATA_FOLDER_PATH="/database/data"
+    DATABASE_FILE_PATH="$DATA_FOLDER_PATH/database.db"
+
+    # Remove all inside the data folder except .gitkeep (this removes cached data from sqlitebrowser)
+    echo "💭 Removing cached data from sqlitebrowser..."
+    find $DATA_FOLDER_PATH -mindepth 1 ! -name '.gitkeep' -exec rm -rf {} +
   
     # Execute the SQL scripts over the database
-    sqlite3 $DATABASE_FILE < /database/scripts/ddl/pedidos-create.sql
-    sqlite3 $DATABASE_FILE < /database/scripts/dml/pedidos-insert.sql
+    sqlite3 $DATABASE_FILE_PATH < /database/scripts/ddl/pedidos-create.sql
+    sqlite3 $DATABASE_FILE_PATH < /database/scripts/dml/pedidos-insert.sql
   
     echo "✅ Database recreated and initialized successfully"
 else

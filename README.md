@@ -175,3 +175,7 @@ To exit a container just press `Ctrl + D`.
 * [Docker](https://www.docker.com/)
 * [Docker commands](https://docs.docker.com/engine/reference/commandline/docker/)
 * [Docker Compose commands](https://docs.docker.com/compose/reference/)
+* [Mermaid](https://mermaid.js.org/)
+* [SQL As Understood By SQLite](https://www.sqlite.org/lang.html)
+* [Dockerfile of SQLite3](https://github.com/KEINOS/Dockerfile_of_SQLite3)
+* [linuxserver docker-sqlitebrowser](https://github.com/linuxserver/docker-sqlitebrowser)

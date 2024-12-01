@@ -34,21 +34,21 @@ erDiagram
 erDiagram
     cliente {
         INTEGER id_cliente PK
-        VARCHAR nombre
-        VARCHAR calle
-        VARCHAR ciudad
+        TEXT nombre
+        TEXT calle
+        TEXT ciudad
     }
     empleado {
         INTEGER id_empleado PK
-        VARCHAR nombre
-        VARCHAR calle
-        VARCHAR ciudad
+        TEXT nombre
+        TEXT calle
+        TEXT ciudad
     }
     producto {
         INTEGER id_producto PK
-        VARCHAR nombre
+        TEXT nombre
         INTEGER existencias
-        INTEGER precio
+        REAL precio
     }
     pedido {
         INTEGER id_pedido PK

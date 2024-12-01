@@ -2,23 +2,23 @@
 
 CREATE TABLE IF NOT EXISTS cliente (
     id_cliente INTEGER NOT NULL PRIMARY KEY, 
-    nombre VARCHAR(20) NOT NULL,
-    calle VARCHAR(20),
-    ciudad VARCHAR(20)
+    nombre TEXT NOT NULL,
+    calle TEXT,
+    ciudad TEXT
 );
 
 CREATE TABLE IF NOT EXISTS empleado (
     id_empleado INTEGER NOT NULL PRIMARY KEY,
-    nombre VARCHAR(20) NOT NULL,
-    calle VARCHAR(20),
-    ciudad VARCHAR(20)
+    nombre TEXT NOT NULL,
+    calle TEXT,
+    ciudad TEXT
 );
 
 CREATE TABLE IF NOT EXISTS producto ( 
     id_producto INTEGER NOT NULL PRIMARY KEY,
-    nombre VARCHAR(20) NOT NULL,
+    nombre TEXT NOT NULL,
     existencias INTEGER,
-    precio INTEGER NOT NULL
+    precio REAL NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS pedido (

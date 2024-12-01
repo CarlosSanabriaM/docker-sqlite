@@ -115,6 +115,8 @@ Open a terminal in the project root folder.
 
 ### 1. Execute the docker containers
 
+First, we need to __execute Docker Desktop__. Just start the application and wait for it to be ready.
+
 There are two ways to start the database:
 - __Recreating and initializing the database with the initial test data__
 - __Starting the database with the existing data__ (the data from the previous execution)

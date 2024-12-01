@@ -14,6 +14,24 @@ This project uses [Docker](https://www.docker.com/) to create a local environmen
 
 ![demo](docs/demo.png)
 
+## Entity relationship model
+
+The following diagram shows the entity relationship model of the database:
+
+```mermaid
+---
+title: Pedidos database
+---
+erDiagram
+    clientes ||--o{ pedidos : realizan
+    empleados ||--o{ pedidos : procesan
+    pedidos ||--|{ detalles_pedido : contienen
+    productos ||--o{ detalles_pedido : contienen
+```
+
+Take a look at [Mermaid Entity Relationship Diagrams documentation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)
+for more information about the syntax.
+
 ## Architecture
 
 The [docker-compose.yml](docker-compose.yml) file specifies how containers should be executed.

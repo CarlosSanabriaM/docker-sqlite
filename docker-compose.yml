@@ -7,8 +7,8 @@ services:
     command: sh scripts/initialize-database.sh
     volumes:
       # Mount the /database folder of the repository to the /database folder in the container
-      # This will allow the database data to persist even if the container is removed
-      # and will make scripts available to the container
+      # This makes initialization scripts available to the container and allows the database data
+      # to persist even if the container is removed.
       - ./database:/database
     working_dir: /database
 
@@ -32,6 +32,7 @@ services:
       # /config is the user home directory in the sqlitebrowser container, so it's the folder
       # that is opened by default in the GUI, making it easy to open the database.
       - ./database/data:/config
+    working_dir: /config
     ports:
       # <external>:<internal>
       - 3000:3000 # Sqlitebrowser desktop gui

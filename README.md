@@ -23,10 +23,10 @@ The following diagram shows the entity relationship model of the database:
 title: Pedidos database
 ---
 erDiagram
-    clientes ||--o{ pedidos : realizan
-    empleados ||--o{ pedidos : procesan
-    pedidos ||--|{ detalles_pedido : contienen
-    productos ||--o{ detalles_pedido : contienen
+    cliente ||--o{ pedido : realiza
+    empleado ||--o{ pedido : procesa
+    pedido ||--|{ detalle_pedido : contiene
+    producto ||--o{ detalle_pedido : contiene
 ```
 
 Take a look at [Mermaid Entity Relationship Diagrams documentation](https://mermaid.js.org/syntax/entityRelationshipDiagram.html)

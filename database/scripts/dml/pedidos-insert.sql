@@ -66,23 +66,23 @@ INSERT INTO producto (id_producto, nombre, existencias, precio) VALUES (13, 'LEC
 INSERT INTO producto (id_producto, nombre, existencias, precio) VALUES (14, 'MANZANA', 100, 6.8);
 
 /* Insert orders */
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (1, 1, 1, '01-01-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (2, 1, 1, '04-01-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (3, 2, 2, '01-01-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (4, 4, 1, '03-02-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (5, 3, 3, '04-02-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (6, 4, NULL, '01-01-2008');   /* an order without employee */
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (7, 5, 2, '03-09-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (8, 5, 2, '03-09-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (9, 5, 2, '03-09-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (10, NULL, 2, '03-12-2008');  /* an order without client */
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (11, 1, 3, '12-04-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (12, 1, 2, '12-01-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (13, 2, 2, '09-05-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (14, NULL, 2, '09-05-2008');  /* an order without client */
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (15, 3, 2, '09-05-2008');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (16, 3, 3, '10-03-2009');
-INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (17, 3, 4, '12-03-2009');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (1, 1, 1, '2008-01-01');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (2, 1, 1, '2008-01-04');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (3, 2, 2, '2008-01-01');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (4, 4, 1, '2008-02-03');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (5, 3, 3, '2008-02-04');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (6, 4, NULL, '2008-01-01');   /* an order without employee */
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (7, 5, 2, '2008-09-03');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (8, 5, 2, '2008-09-03');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (9, 5, 2, '2008-09-03');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (10, NULL, 2, '2008-12-03');  /* an order without client */
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (11, 1, 3, '2008-04-12');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (12, 1, 2, '2008-01-12');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (13, 2, 2, '2008-05-09');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (14, NULL, 2, '2008-05-09');  /* an order without client */
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (15, 3, 2, '2008-05-09');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (16, 3, 3, '2009-03-10');
+INSERT INTO pedido (id_pedido, id_cliente, id_empleado, fecha_pedido) VALUES (17, 3, 4, '2009-03-12');
 
 /* Insert order details */
 INSERT INTO detalle_pedido (id_pedido,id_producto, cantidad) VALUES (1, 1, 8);

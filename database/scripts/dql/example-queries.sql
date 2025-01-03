@@ -45,7 +45,7 @@ SELECT cliente.nombre, producto.nombre
 SELECT * FROM empleado WHERE UPPER(ciudad) IN ('GIJON', 'GIJÓN');
 
 -- Alter table para añadir una nueva columna a la tabla cliente
-ALTER TABLE cliente ADD COLUMN telefono VARCHAR(9);
+ALTER TABLE cliente ADD COLUMN telefono TEXT;
 -- Modificar los datos de todos los clientes
 UP, cliente SET telefono = '985000001' WHERE id_cliente = 1;
 UPDATE cliente SET telefono = '985000002' WHERE id_cliente = 2;

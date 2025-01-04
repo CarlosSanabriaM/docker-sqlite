@@ -15,8 +15,8 @@ if [ "$RECREATE_DATABASE_WITH_INITIAL_TEST_DATA" = "true" ]; then
     find $DATA_FOLDER_PATH -mindepth 1 ! -name '.gitkeep' -exec rm -rf {} +
   
     # Execute the SQL scripts over the database
-    sqlite3 $DATABASE_FILE_PATH < /database/scripts/ddl/pedidos-create.sql
-    sqlite3 $DATABASE_FILE_PATH < /database/scripts/dml/pedidos-insert.sql
+    sqlite3 $DATABASE_FILE_PATH < /database/scripts/ddl/create.sql
+    sqlite3 $DATABASE_FILE_PATH < /database/scripts/dml/insert.sql
   
     echo "✅ Database recreated and initialized successfully"
 else
